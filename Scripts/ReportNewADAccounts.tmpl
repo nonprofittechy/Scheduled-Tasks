@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Report of New AD Accounts for <TMPL_VAR NAME="CURRENTDATE"></title>
+<style>
+body { background-color:#dddddd;
+       font-family:Tahoma;
+       font-size:12pt; }
+td, th { border:1px solid black; 
+         border-collapse:collapse; }
+th { color:white;
+     background-color:black; }
+table, tr, td, th { padding: 2px; margin: 0px }
+table { margin-left:50px; }
+h2 {font-size: 14pt;
+	font-family: Tahoma;}
+</style>
+</head>
+<body>
+
+<h2>New AD accounts created between <TMPL_VAR NAME="STARTDATE> and <TMPL_VAR NAME="CURRENTDATE"> for domain <TMPL_VAR NAME="DOMAINDNSROOT"></h2>
+<table>
+<tr>
+	<th>Account Name</th>
+	<th>Display Name</th>
+	<th>Department</th>
+	<th>Warnings</th>
+</tr>
+<TMPL_LOOP NAME="USERS">	<tr>
+		<td><TMPL_VAR NAME="SAMACCOUNTNAME"></td>
+		<td><TMPL_VAR NAME="NAME"></td>
+		<td><TMPL_VAR NAME="DEPARTMENT"></td>
+		<TMPL_IF NAME="WARNINGS"><td style="background-color:LightCoral"><TMPL_VAR NAME="WARNINGS"></td><TMPL_ELSE><td></td></TMPL_IF>
+	</tr>
+</TMPL_LOOP>
+</table>
+
+</body>
+</html>
